@@ -6,7 +6,7 @@ function getCallerInfo() {
   const err = new Error();
   Error.captureStackTrace(err, getCallerInfo);
 
-  const callSite = err.stack[2]; // Index 2 refers to the caller's caller (wrapper)
+  const callSite = err.stack[1]; // Index 2 refers to the caller's caller (wrapper)
 
   if (callSite) {
     return {
