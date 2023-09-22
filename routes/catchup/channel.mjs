@@ -26,7 +26,9 @@ router.get("/getm3u8/:start/:end/:id/index.m3u8", async (req, res) => {
   let decryptionData = await getManifist(id, start, end);
   jdebug('decryptionData', decryptionData);
   if (!decryptionData["success"]) {
-    return res.redirect(req.originalUrl);
+    // TODO revisit and understand the logic of redirection
+    return res.sendStatus(404);
+    // return res.redirect(req.originalUrl);
   }
   res.set("Content-Type", "application/vnd.apple.mpegurl");
   return res.status(200).send(Buffer.from(decryptionData["data"], 'utf-8'));
@@ -37,7 +39,9 @@ router.get("/getm3u8/:start/:end/:id/master.m3u8", async (req, res) => {
   let decryptionData = await getManifist(id, start, end);
   jdebug('decryptionData', decryptionData);
   if (!decryptionData["success"]) {
-    return res.redirect(req.originalUrl);
+    // TODO revisit and understand the logic of redirection
+    return res.sendStatus(404);
+    // return res.redirect(req.originalUrl);
   }
   res.set("Content-Type", "application/vnd.apple.mpegurl");
   return res.status(200).send(Buffer.from(decryptionData["data"], "utf-8"));
