@@ -16,9 +16,9 @@ const __dirname = path.dirname(__filename);
 
 // import { handler } from "file://D:/projects/JTVServer github/WEB/build/handler.js";
 
-let networkInterfaces = os.networkInterfaces();
-let ip = networkInterfaces["eth0"][0]["address"];
-fs["writeFileSync"]("./ipData.jiotv", ip);
+// let networkInterfaces = os.networkInterfaces();
+// let ip = networkInterfaces["eth0"][0]["address"];
+// fs["writeFileSync"]("./ipData.jiotv", ip);
 
 if (!fs.existsSync("channel.db")) {
   fs["writeFileSync"]("./channel.db", '{"channel": {}}');
@@ -105,9 +105,6 @@ app.listen(PORT, "0.0.0.0", () => {
   console.log(`TV server is running on port ${PORT}`);
   console.log(
     `Please open http://localhost:${PORT}/login from the host to login and get playlist if running server for the first time`
-  );
-  console.log(
-    `Or, please open http://${ip}:${PORT}/login from any machine on the LAN to login and get playlist if running server for the first time`
   );
   console.log(
     `Note: If hosted in a website, you may want to use the domain or its IP`
