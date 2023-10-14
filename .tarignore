@@ -19,3 +19,5 @@ WEB*
 .tarignore
 start.bat
 start.sh
+install.sh
+JTVServer.zip

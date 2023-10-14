@@ -1,7 +1,8 @@
 #!/bin/bash
-# Installer - TODO move it to server & refactor
+# Installer
+#   Deployed to https://gitlab.com/-/snippets/3611198/raw for shorter URL
+#   To be called `sh -c "$(curl -sSL https://gitlab.com/-/snippets/3611198/raw)"`
 # TODO - Add check for system compatibility or ignore?
-# TODO `sh -c "$(curl -sSL https://remote.com/install.sh)"`
 {
 set -x # enable display output of commands; shortcut to adding descriptive echo
 
@@ -24,7 +25,7 @@ fi
 
 # download
 # TODO fix the path
-curl -o JTVServer.tar.gz https://github.com/dhruv-2015/JIOTVServer/releases/download/V2.9.3/JTVServer.tar.gz
+curl -o JTVServer.tar.gz https://github.com/rrjanbiah/JTVFire/releases/latest/download/JTVServer.tar.gz
 tar -xvf JTVServer.tar.gz
 for f in $("$HOME/*.jiotv"); do # restore
     if [ -f "$f" ]; then

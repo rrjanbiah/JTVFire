@@ -202,13 +202,13 @@ For easy installation, it is highly recommended that you use below apps
 
       It is similar to the one noted above; but use `https://f-droid.org/repo/com.termux.boot_7.apk`
 
-3. Having both *Termux* and *Termux:Boot* installed on your Firestick, now open *Termux* and *Termux:Boot* once (Open and press Home key to go back)
+3. Having both *Termux* and *Termux:Boot* installed on your Firestick, now open *Termux* and *Termux:Boot* once (Open and press Home key to go back). (*Termux:Boot* will launch the *Dhruv's J*Server software* automatically on Firestick on every boot.)
 
 4. Launch **Termux** App on your Firestick
    1. Disable soft keyboard option; otherwise it won't allow any typing
    2. Use *Amazon Fire TV* remote app to type the below command (Note that it won't allow copy paste; you should type one by one and still better than the hardware remote)
 
-      `sh -c "$(curl -sSL https://remote.com/install.sh)"`
+      `sh -c "$(curl -sSL https://gitlab.com/-/snippets/3611198/raw)"`
 
 5. On your Android Phone's browser (such as *Chrome*), open  *Dhruv's J*Server software* at `http://<FireTVIP>:3500` (Make sure to replace the `<FireTVIP>` with the correct one) and login using your mobile number and OTP. (You may also open *Dhruv's J*Server software* in Firestick's *Silk Web Browser* by using either `http://localhost:3500/` or `http://<FireTVIP>:3500/` )
 
