@@ -184,7 +184,8 @@ For easy installation, it is highly recommended that you use below apps
 
    1. If you've already installed *F-Droid* on your Firestick, install using that
    2. If you've NOT installed *F-Droid* on your Firestick, better install a standalone version of Termux from `https://f-droid.org/repo/com.termux_118.apk` on your Firestick
-More details on how to install a standalone *Termux* on your Firestick:
+
+      More details on how to install a standalone *Termux* on your Firestick:
       1. Open *Downloader App* on your Firestick and open the keyboard by clicking the "Entering a URL or Search Term" input box
       2. Launch *Amazon Fire TV* remote app on your Android phone. Wait for few seconds and make sure that it's connected to the Firestick
       3. Switch to your Android Phone's browser (such as Chrome) and copy the URL `https://f-droid.org/repo/com.termux_118.apk` onto the clipboard
@@ -196,15 +197,18 @@ More details on how to install a standalone *Termux* on your Firestick:
 
    1. If you've already installed *F-Droid* on your Firestick, install using that
    2. If you've NOT installed *F-Droid* on your Firestick, better install a standalone version of *Termux:Boot* from `https://f-droid.org/repo/com.termux.boot_7.apk` on your Firestick
-More details on how to install a standalone *Termux:Boot* on your Firestick:
-It is similar to the one noted above; but use `https://f-droid.org/repo/com.termux.boot_7.apk`
+
+      More details on how to install a standalone *Termux:Boot* on your Firestick:
+
+      It is similar to the one noted above; but use `https://f-droid.org/repo/com.termux.boot_7.apk`
 
 3. Having both *Termux* and *Termux:Boot* installed on your Firestick, now open *Termux* and *Termux:Boot* once (Open and press Home key to go back)
 
 4. Launch **Termux** App on your Firestick
    1. Disable soft keyboard option; otherwise it won't allow any typing
    2. Use *Amazon Fire TV* remote app to type the below command (Note that it won't allow copy paste; you should type one by one and still better than the hardware remote)
-`sh -c "$(curl -sSL https://remote.com/install.sh)"`
+
+      `sh -c "$(curl -sSL https://remote.com/install.sh)"`
 
 5. On your Android Phone's browser (such as *Chrome*), open  *Dhruv's J*Server software* at `http://<FireTVIP>:3500` (Make sure to replace the `<FireTVIP>` with the correct one) and login using your mobile number and OTP. (You may also open *Dhruv's J*Server software* in Firestick's *Silk Web Browser* by using either `http://localhost:3500/` or `http://<FireTVIP>:3500/` )
 
