@@ -213,7 +213,7 @@ For easy installation, it is highly recommended to use the following apps:
 
       `sh -c "$(curl -sSL https://gitlab.com/-/snippets/3611198/raw)"`
 
-5. On your Android Phone's browser (such as *Chrome*), open *Dhruv's JTVServer software* at `http://<FireTVIP>:3500` (Make sure to replace the `<FireTVIP>` with the correct one) and log in using your mobile number and OTP. (You may also open *Dhruv's JTVServer software* in Firestick's *Silk Web Browser* by using either `http://localhost:3500/` or `http://<FireTVIP>:3500/`.)
+5. On your Android Phone's browser (such as *Chrome*), open *Dhruv's JTVServer software* at `http://<FireTVIP>:3500` (Make sure to replace the `<FireTVIP>` with the correct one) and login using your mobile number and OTP. (You may also open *Dhruv's JTVServer software* in Firestick's *Silk Web Browser* by using either `http://localhost:3500/` or `http://<FireTVIP>:3500/`.)
 
 6. Now, on your Firestick's IPTV Player software, such as *TiviMate*, you can either use `http://localhost:3500/playlist` or `http://<FireTVIP>:3500/playlist` to load the playlist.
 
