@@ -204,7 +204,7 @@ For easy installation, it is highly recommended to use the following apps:
 
 
 
-3. With both *Termux* and *Termux:Boot* installed on your Firestick, open *Termux* and *Termux:Boot* once (Open and press the Home key to go back). (*Termux:Boot* will launch *Dhruv's J*Server software* automatically on the Firestick on every boot.)
+3. With both *Termux* and *Termux:Boot* installed on your Firestick, open *Termux* and *Termux:Boot* once (Open and press the Home key to go back). (*Termux:Boot* will launch *Dhruv's JTVServer software* automatically on the Firestick on every boot.)
 
 4. Launch the **Termux** App on your Firestick.
 
