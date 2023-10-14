@@ -150,3 +150,72 @@ prerequsit: docker & docker-compose installed
 clone the repo
 run `docker-compose up -d`
 once the container is up and running go to your http://{IP}:{PORT} and you should be able to access the portal
+
+## Firestick Instruction (Simplified approach)
+
+Notes on IP setup above are now obsolete (Dhruv may update that). The setup approach here tried to make the process lightweight on Firestick by avoiding additional software such as `wget` and `zip`; and also by making the installation process easy to type on *Termux* on Firestick through short URL on GitLab.
+
+### Prerequisites
+
+**Read carefully once** before you start. This is not a quick copy paste work; but you'll need to know the basics.
+
+1. Both your Firestick and your Android Phone connected to the same WiFi network
+2. (Optional) As Amazon can track sideloaded apps, better to disable "Data Monitoring", "Device Usage Data" and "Collect App Usage Data" under "Privacy Settings" of your Firestick
+
+### Tools required
+
+For easy installation, it is highly recommended that you use below apps
+
+1. [Easy Fire Tools](https://play.google.com/store/apps/details?id=de.agondev.easyfiretools&hl=en_IN) App on your Android Phone
+
+**Purpose:** By opening the App on Phone and clicking the torch like "Discovery" icon, we can easily find out the IP of Firestick on the network. Another use could be to upload/download files to/from the Firestick (especially for downloading the log file from the Firestick to the Android Phone.)
+
+2. [Amazon Fire TV](https://play.google.com/store/apps/details?id=com.amazon.storm.lightning.client.aosp&hl=en) remote App on your Android Phone
+
+**Purpose:** To easily type texts using its keyboard option. Note that the keyboard won't work consistent across all Firestick apps; for example, in some Firestick apps paste will work and in others it won't. But, it is definitely much better than Firestick's hardware remote option for typing.
+
+3. Downloader App on your Firestick; refer `https://troypoint.com/downloader/` (ignore fear mongering VPN Ads/spoilers on that page) for the installation steps
+
+**Purpose:** To sideload or install the apps that are not available to install from Amazon App Store. Don't follow; but briefly read the guides such as `https://www.firesticktricks.com/sideload-apps-on-firestick.html` on how to use the *Downloader App* and understand the basics.
+
+### Installation on Firestick
+
+1. Install **Termux** on your Firestick using the *Downloader App*
+
+   1. If you've already installed *F-Droid* on your Firestick, install using that
+   2. If you've NOT installed *F-Droid* on your Firestick, better install a standalone version of Termux from `https://f-droid.org/repo/com.termux_118.apk` on your Firestick
+More details on how to install a standalone *Termux* on your Firestick:
+      1. Open *Downloader App* on your Firestick and open the keyboard by clicking the "Entering a URL or Search Term" input box
+      2. Launch *Amazon Fire TV* remote app on your Android phone. Wait for few seconds and make sure that it's connected to the Firestick
+      3. Switch to your Android Phone's browser (such as Chrome) and copy the URL `https://f-droid.org/repo/com.termux_118.apk` onto the clipboard
+      4. Switch back to the *Amazon Fire TV* remote app on your Android phone and paste it using its keyboard option
+      5. Click Next on the Downloader App on your Firestick either using the hardware remote or the *Amazon Fire TV* remote app to download the APK
+      6. Follow the step on the Firestick screen to install *Termux* and once done, delete the downloaded APK file to clear some spaces. Note that deletion of APK is optional.
+
+2. Install **Termux:Boot** (an Add-on for Termux)
+
+   1. If you've already installed *F-Droid* on your Firestick, install using that
+   2. If you've NOT installed *F-Droid* on your Firestick, better install a standalone version of *Termux:Boot* from `https://f-droid.org/repo/com.termux.boot_7.apk` on your Firestick
+More details on how to install a standalone *Termux:Boot* on your Firestick:
+It is similar to the one noted above; but use `https://f-droid.org/repo/com.termux.boot_7.apk`
+
+3. Having both *Termux* and *Termux:Boot* installed on your Firestick, now open *Termux* and *Termux:Boot* once (Open and press Home key to go back)
+
+4. Launch **Termux** App on your Firestick
+   1. Disable soft keyboard option; otherwise it won't allow any typing
+   2. Use *Amazon Fire TV* remote app to type the below command (Note that it won't allow copy paste; you should type one by one and still better than the hardware remote)
+`sh -c "$(curl -sSL https://remote.com/install.sh)"`
+
+5. On your Android Phone's browser (such as *Chrome*), open  *Dhruv's J*Server software* at `http://<FireTVIP>:3500` (Make sure to replace the `<FireTVIP>` with the correct one) and login using your mobile number and OTP. (You may also open *Dhruv's J*Server software* in Firestick's *Silk Web Browser* by using either `http://localhost:3500/` or `http://<FireTVIP>:3500/` )
+
+6. Now, on your Firestick's IPTV Player software such as *TiviMate*, you can either use `http://localhost:3500/playlist` or `http://<FireTVIP>:3500/playlist` to load the playlist
+
+### TODO
+
+ 1. [ ] Check TODO in `install.sh`
+ 2. [ ] Check TODO in other places
+ 3. [ ] Handle `.env` especially for version (display version, debug in `/ip/debug` (version, server, etc)
+ 4. [ ] Create a normal and debug build. And, handle that in `install.sh`  
+ 5. [ ] In  login/admin,  show  debug  text  area  with an  option  to  download  log?
+ 6. [ ] Add screenshots to README?
+

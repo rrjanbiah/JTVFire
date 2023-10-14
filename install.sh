@@ -5,6 +5,7 @@
 {
 set -x # enable display output of commands; shortcut to adding descriptive echo
 
+cd ~
 echo "$TERMUX_VERSION"
 
 # prerequisites
@@ -27,7 +28,7 @@ curl -o JTVServer.tar.gz https://github.com/dhruv-2015/JIOTVServer/releases/down
 tar -xvf JTVServer.tar.gz
 for f in $("$HOME/*.jiotv"); do # restore
     if [ -f "$f" ]; then
-        mv "$f" "$HOME/JTVServer/"  # take a backup in home
+        mv "$f" "$HOME/JTVServer/"
 	fi
 done
 
@@ -39,11 +40,14 @@ cat <<EOF > ~/.termux/boot/JTVServer.rc && echo "Written ~/.termux/boot/JTVServe
 #!/bin/sh
 termux-wake-lock
 cd $HOME/JTVServer/
-# TODO add nohup, trim log
-node index.js > JTVServer.log 2>&1 &
+# TODO add nohup or leave it for debugging?
+node index.js >> JTVServer.log 2>&1 &
+# TODO test log trimmer
+# head -c 50M JTVServer.log > JTVServer.log.tmp && mv JTVServer.log.tmp JTVServer.log
 EOF
 
-lsof -t -i:3500 -sTCP:LISTEN  # TODO no use
+# test if server is up and listening
+lsof -t -i:3500 -sTCP:LISTEN
 
 set +x
-} 2>&1 | tee -a JTVServer.log
+} 2>&1 | tee -a "$HOME/JTVServer/JTVServer.log"
