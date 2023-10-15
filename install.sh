@@ -15,7 +15,7 @@ pkg install nodejs-lts -y
 
 if [ -d "$HOME/JTVServer" ]; then # if already installed
    kill -9 "$(lsof -t -i:3500 -sTCP:LISTEN)"
-   for f in $("$HOME/JTVServer/*.jiotv"); do
+   for f in $("$HOME/JTVServer"/*.jiotv); do
     if [ -f "$f" ]; then
         mv "$f" .  # take a backup in home
 	fi
@@ -25,13 +25,14 @@ fi
 
 # download
 # TODO fix the path
-curl -o JTVServer.tar.gz https://github.com/rrjanbiah/JTVFire/releases/latest/download/JTVServer.tar.gz
+curl -o JTVServer.tar.gz -sSL https://github.com/rrjanbiah/JTVFire/releases/latest/download/JTVServer.tar.gz
 tar -xvf JTVServer.tar.gz
-for f in $("$HOME/*.jiotv"); do # restore
+for f in $("$HOME"/*.jiotv); do # restore
     if [ -f "$f" ]; then
         mv "$f" "$HOME/JTVServer/"
 	fi
 done
+rm JTVServer.tar.gz
 
 # setup boot...
 mkdir -p ~/.termux/boot
@@ -47,8 +48,6 @@ node index.js >> JTVServer.log 2>&1 &
 # head -c 50M JTVServer.log > JTVServer.log.tmp && mv JTVServer.log.tmp JTVServer.log
 EOF
 
-# test if server is up and listening
-lsof -t -i:3500 -sTCP:LISTEN
 
 set +x
 } 2>&1 | tee -a "$HOME/JTVServer/JTVServer.log"
