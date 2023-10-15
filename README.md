@@ -213,9 +213,12 @@ For easy installation, it is highly recommended to use the following apps:
 
       `sh -c "$(curl -sSL https://gitlab.com/-/snippets/3611198/raw)"`
 
-5. On your Android Phone's browser (such as *Chrome*), open *Dhruv's JTVServer software* at `http://<FireTVIP>:3500` (Make sure to replace the `<FireTVIP>` with the correct one) and login using your mobile number and OTP. (You may also open *Dhruv's JTVServer software* in Firestick's *Silk Web Browser* by using either `http://localhost:3500/` or `http://<FireTVIP>:3500/`.)
+5. Restart your Firestick, and *Dhruv's JTVServer* should be up and running after a few seconds. **Edit/Note:** I've noticed [an issue](https://github.com/termux/termux-boot/issues/58#issuecomment-1763320383) now. If you face the same issue, unfortunately, you'll need to open Termux manually on every Firestick open and wait for a few seconds to get a notice at the bottom right hand corner suggesting to press menu button (≡) to launch the startup/server script.
 
-6. Now, on your Firestick's IPTV Player software, such as *TiviMate*, you can either use `http://localhost:3500/playlist` or `http://<FireTVIP>:3500/playlist` to load the playlist.
+
+6. On your Android Phone's browser (such as *Chrome*), open *Dhruv's JTVServer software* at `http://<FireTVIP>:3500` (Make sure to replace the `<FireTVIP>` with the correct one) and login using your mobile number and OTP. (You may also open *Dhruv's JTVServer software* in Firestick's *Silk Web Browser* by using either `http://localhost:3500/` or `http://<FireTVIP>:3500/`.)
+
+7. Now, on your Firestick's IPTV Player software, such as *TiviMate*, you can either use `http://localhost:3500/playlist` or `http://<FireTVIP>:3500/playlist` to load the playlist.
 
 ### TODO
 
