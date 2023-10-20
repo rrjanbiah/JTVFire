@@ -151,6 +151,8 @@ clone the repo
 run `docker-compose up -d`
 once the container is up and running go to your http://{IP}:{PORT} and you should be able to access the portal
 
+# Fire TV
+
 ## Firestick Instructions (Simplified Approach)
 
 Notes on IP setup above are now obsolete (Dhruv may update that). The setup approach here attempts to make the process lightweight on Firestick by avoiding additional software such as `wget` and `zip`, and also by making the installation process easy to type on *Termux* on Firestick through a short URL on GitLab.
@@ -213,7 +215,7 @@ For easy installation, it is highly recommended to use the following apps:
 
       `sh -c "$(curl -sSL https://gitlab.com/-/snippets/3611198/raw)"`
 
-5. Restart your Firestick, and *Dhruv's JTVServer* should be up and running after a few seconds. **Edit/Note:** I've noticed [an issue](https://github.com/termux/termux-boot/issues/58#issuecomment-1763320383) now. If you face the same issue, unfortunately, you'll need to open Termux manually on every Firestick open and wait for a few seconds to get a notice at the bottom right hand corner suggesting to press menu button (≡) to launch the startup/server script.
+5. Restart your Firestick, and *Dhruv's JTVServer* should be up and running after a few seconds. **Edit/Note:** As noted in this [issue comment](https://github.com/termux/termux-boot/issues/58#issuecomment-1763320383), you'll need to open Termux manually a couple of times when starting Firestick. Wait for a few seconds until you see a notice at the bottom right-hand corner suggesting you press the menu button (≡) to launch the startup/server script. After a few attempts (I'm not sure exactly how many, but it's typically 1-5 times), this manual process won't be necessary anymore. You'll notice a similar message on the home screen, and you don't need to click anything. This indicates that the server is up and running. If you open the IPTV player, it should work.
 
 
 6. On your Android Phone's browser (such as *Chrome*), open *Dhruv's JTVServer software* at `http://<FireTVIP>:3500` (Make sure to replace the `<FireTVIP>` with the correct one) and login using your mobile number and OTP. (You may also open *Dhruv's JTVServer software* in Firestick's *Silk Web Browser* by using either `http://localhost:3500/` or `http://<FireTVIP>:3500/`.)
