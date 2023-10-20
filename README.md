@@ -220,10 +220,31 @@ For easy installation, it is highly recommended to use the following apps:
 
 6. On your Android Phone's browser (such as *Chrome*), open *Dhruv's JTVServer software* at `http://<FireTVIP>:3500` (Make sure to replace the `<FireTVIP>` with the correct one) and login using your mobile number and OTP. (You may also open *Dhruv's JTVServer software* in Firestick's *Silk Web Browser* by using either `http://localhost:3500/` or `http://<FireTVIP>:3500/`.)
 
-![Screenshot of JTVServer running on a Firestick, accessed in the Chrome browser on an Android phone.](https://github.com/rrjanbiah/JTVFire/assets/4907427/2654b019-78a6-4500-8766-782ffe4467f9)
+| ![Screenshot of JTVServer running on a Firestick, accessed in the Chrome browser on an Android phone.](https://github.com/rrjanbiah/JTVFire/assets/4907427/d3c43dfc-45ca-4f45-b477-adf0ac5128fe) | 
+|:--:| 
+| *Screenshot of JTVServer running on a Firestick, accessed in the Chrome browser on an Android phone.* |
 
 
 7. Now, on your Firestick's IPTV Player software, such as *TiviMate*, you can either use `http://localhost:3500/playlist` or `http://<FireTVIP>:3500/playlist` to load the playlist.
+
+### Screenshots
+
+#### EPG (Electronic Program Guide) for a Favorites list from Dhruv's JTVServer playlist on TiviMate
+
+| ![Screenshot of the EPG (Electronic Program Guide) for a Favorites list from Dhruv's JTVServer playlist on TiviMate.](https://github.com/rrjanbiah/JTVFire/assets/4907427/739a9550-61a0-4761-9054-8b83039d44ba) | 
+|:--:| 
+| *Screenshot of the EPG (Electronic Program Guide) for a Favorites list from Dhruv's JTVServer playlist on TiviMate.* |
+
+**Note:** The history/clock icon next to the channel name indicates that it has a catch-up feature.
+
+
+#### Catch-up feature for the TravelXP HD channel in TiviMate
+
+| ![Screenshot of the catch-up feature for the TravelXP HD channel in TiviMate.](https://github.com/rrjanbiah/JTVFire/assets/4907427/5c697afc-40a8-46be-af80-fb8c5072bb4f) | 
+|:--:| 
+| *Screenshot of the catch-up feature for the TravelXP HD channel in TiviMate.* |
+
+
 
 ### TODO
 
