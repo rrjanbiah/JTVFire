@@ -170,13 +170,27 @@ For easy installation, it is highly recommended to use the following apps:
 
 1. [Easy Fire Tools](https://play.google.com/store/apps/details?id=de.agondev.easyfiretools&hl=en_IN) App on your Android Phone
 
+| ![Screenshot of the Easy Fire Tools app running on an Android phone, displaying the Discovery feature.](https://github.com/rrjanbiah/JTVFire/assets/4907427/726fe8d5-6b66-420a-bbdb-3ac2120bf59d) | 
+|:--:| 
+| *Screenshot of the Easy Fire Tools app running on an Android phone, displaying the Discovery feature.* |
+
 **Purpose:** By opening the app on your phone and clicking the torch-like "Discovery" icon, you can easily find out the IP address of the Firestick on the network. Another use could be to upload/download files to/from the Firestick, especially for downloading the log file from the Firestick to your Android Phone.
+
 
 2. [Amazon Fire TV](https://play.google.com/store/apps/details?id=com.amazon.storm.lightning.client.aosp&hl=en) remote app on your Android Phone
 
+| ![Screenshot of the Amazon Fire TV remote app running on an Android phone.](https://github.com/rrjanbiah/JTVFire/assets/4907427/938e2453-8ea2-44d6-b500-c60bcf9c4d47) | 
+|:--:| 
+| *Screenshot of the Amazon Fire TV remote app running on an Android phone.* |
+
 **Purpose:** To easily type texts using its keyboard option. Note that the keyboard won't work consistently across all Firestick apps; for example, in some Firestick apps, paste will work and in others, it won't. However, it is definitely much better than the Firestick's hardware remote option for typing.
 
+
 3. Downloader App on your Firestick; refer to `https://troypoint.com/downloader/` (ignore fear-mongering VPN Ads/spoilers on that page) for the installation steps.
+
+| ![Screenshot of the Downloader app running on a Firestick.](https://github.com/rrjanbiah/JTVFire/assets/4907427/04ed7d85-3e1f-4c69-858e-722fcf7053e3) | 
+|:--:| 
+| *Screenshot of the Downloader app running on a Firestick.* |
 
 **Purpose:** To sideload or install apps that are not available to install from the Amazon App Store. Don't follow the guide but briefly read guides such as `https://www.firesticktricks.com/sideload-apps-on-firestick.html` on how to use the *Downloader App* and understand the basics.
 
@@ -188,12 +202,17 @@ For easy installation, it is highly recommended to use the following apps:
    2. If you've NOT installed *F-Droid* on your Firestick, it's better to install a standalone version of Termux from `https://f-droid.org/repo/com.termux_118.apk` on your Firestick.
 
       More details on how to install a standalone *Termux* on your Firestick:
+
       1. Open the *Downloader App* on your Firestick and open the keyboard by clicking the "Entering a URL or Search Term" input box.
       2. Launch the *Amazon Fire TV* remote app on your Android phone. Wait for a few seconds and make sure it's connected to the Firestick.
       3. Switch to your Android Phone's browser (such as Chrome) and copy the URL `https://f-droid.org/repo/com.termux_118.apk` onto the clipboard.
       4. Switch back to the *Amazon Fire TV* remote app on your Android phone and paste it using its keyboard option.
       5. Click Next on the Downloader App on your Firestick, either using the hardware remote or the *Amazon Fire TV* remote app to download the APK.
       6. Follow the steps on the Firestick screen to install *Termux*, and once done, delete the downloaded APK file to clear some space. Note that deletion of the APK is optional.
+
+| ![Screenshot demonstrating copy-paste functionality in the Downloader app's keyboard, using the Amazon Fire TV remote app to install the Termux app on a Firestick.](https://github.com/rrjanbiah/JTVFire/assets/4907427/15d8e1db-eafd-497d-ad94-76a135b1afd9) | 
+|:--:| 
+| *Screenshot demonstrating copy-paste functionality in the Downloader app's keyboard, using the Amazon Fire TV remote app to install the Termux app on a Firestick.* |
 
 2. Install **Termux:Boot** (an Add-on for Termux).
 
@@ -205,20 +224,33 @@ For easy installation, it is highly recommended to use the following apps:
       It is similar to the one noted above, but use `https://f-droid.org/repo/com.termux.boot_7.apk`.
 
 
-
 3. With both *Termux* and *Termux:Boot* installed on your Firestick, open *Termux* and *Termux:Boot* once (Open and press the Home key to go back). (*Termux:Boot* will launch *Dhruv's JTVServer software* automatically on the Firestick on every boot.)
 
 4. Launch the **Termux** App on your Firestick.
 
    1. Disable the soft keyboard option; otherwise, it won't allow any typing.
+
+| ![Screenshot of the Termux app running on a Firestick, with its Settings menu accessed through the Firestick's menu button (≡).](https://github.com/rrjanbiah/JTVFire/assets/4907427/fa7fcf1d-1fd4-4646-9d26-2a9f666c241d) | 
+|:--:| 
+| *Screenshot of the Termux app running on a Firestick, with its Settings menu accessed through the Firestick's menu button (≡).* |
+
+| ![Screenshot of the Termux app running on a Firestick, with the soft keyboard option disabled in the settings menu.](https://github.com/rrjanbiah/JTVFire/assets/4907427/e381abba-4bcd-4b83-9263-5c4154c39041) | 
+|:--:| 
+| *Screenshot of the Termux app running on a Firestick, with the soft keyboard option disabled in the settings menu.* |
+
    2. Use the *Amazon Fire TV* remote app to type the following command (Note that it won't allow copy-paste; you should type one by one, but it's still better than the hardware remote).
 
       `sh -c "$(curl -sSL https://gitlab.com/-/snippets/3611198/raw)"`
 
-5. Restart your Firestick, and *Dhruv's JTVServer* should be up and running after a few seconds. **Edit/Note:** As noted in this [issue comment](https://github.com/termux/termux-boot/issues/58#issuecomment-1763320383), you'll need to open Termux manually a couple of times when starting Firestick. Wait for a few seconds until you see a notice at the bottom right-hand corner suggesting you press the menu button (≡) to launch the startup/server script. After a few attempts (I'm not sure exactly how many, but it's typically 1-5 times), this manual process won't be necessary anymore. You'll notice a similar message on the home screen, and you don't need to click anything. This indicates that the server is up and running. If you open the IPTV player, it should work.
+| ![Screenshot of the installer script shell command being typed using the Amazon Fire TV remote app on an Android phone while the Termux app is running on the Firestick.](https://github.com/rrjanbiah/JTVFire/assets/4907427/ddc5fc20-7fd4-4948-90d3-8706b1ec659c) | 
+|:--:| 
+| *Screenshot of the installer script shell command being typed using the Amazon Fire TV remote app on an Android phone while the Termux app is running on the Firestick.* |
 
 
-6. On your Android Phone's browser (such as *Chrome*), open *Dhruv's JTVServer software* at `http://<FireTVIP>:3500` (Make sure to replace the `<FireTVIP>` with the correct one) and login using your mobile number and OTP. (You may also open *Dhruv's JTVServer software* in Firestick's *Silk Web Browser* by using either `http://localhost:3500/` or `http://<FireTVIP>:3500/`.)
+5. Restart your Firestick. Ideally, *Dhruv's JTVServer* should be up and running within a few seconds. However, as mentioned in this [issue comment](https://github.com/termux/termux-boot/issues/58#issuecomment-1763320383), it may not auto-start for around 1-5 attempts. So, when you see a notice in the bottom right corner that says '1 session, 1 task (wake lock held) Launch (≡)' or something similar, please press the Firestick's menu button (≡) to launch the server script. If you don't see such a notice, open the Termux app (not the Termux:Boot app) on the Firestick and wait for the notice to appear. Meanwhile, keep checking your Android phone's browser, such as Chrome, to see if `http://<FireTVIP>:3500/` is coming up.
+
+
+6. On your Android Phone's browser (such as *Chrome*), open *Dhruv's JTVServer software* at `http://<FireTVIP>:3500/` (Make sure to replace the `<FireTVIP>` with the correct one) and login using your mobile number and OTP. (You may also open *Dhruv's JTVServer software* in Firestick's *Silk Web Browser* by using either `http://localhost:3500/` or `http://<FireTVIP>:3500/`.)
 
 | ![Screenshot of JTVServer running on a Firestick, accessed in the Chrome browser on an Android phone.](https://github.com/rrjanbiah/JTVFire/assets/4907427/d3c43dfc-45ca-4f45-b477-adf0ac5128fe) | 
 |:--:| 
@@ -227,23 +259,21 @@ For easy installation, it is highly recommended to use the following apps:
 
 7. Now, on your Firestick's IPTV Player software, such as *TiviMate*, you can either use `http://localhost:3500/playlist` or `http://<FireTVIP>:3500/playlist` to load the playlist.
 
-### Screenshots
-
-#### EPG (Electronic Program Guide) for a Favorites list from Dhruv's JTVServer playlist on TiviMate
-
 | ![Screenshot of the EPG (Electronic Program Guide) for a Favorites list from Dhruv's JTVServer playlist on TiviMate.](https://github.com/rrjanbiah/JTVFire/assets/4907427/739a9550-61a0-4761-9054-8b83039d44ba) | 
 |:--:| 
 | *Screenshot of the EPG (Electronic Program Guide) for a Favorites list from Dhruv's JTVServer playlist on TiviMate.* |
 
 **Note:** The history/clock icon next to the channel name indicates that it has a catch-up feature.
 
-
-#### Catch-up feature for the TravelXP HD channel in TiviMate
-
 | ![Screenshot of the catch-up feature for the TravelXP HD channel in TiviMate.](https://github.com/rrjanbiah/JTVFire/assets/4907427/5c697afc-40a8-46be-af80-fb8c5072bb4f) | 
 |:--:| 
 | *Screenshot of the catch-up feature for the TravelXP HD channel in TiviMate.* |
 
+8. As mentioned earlier, you may need to manually initiate the script when you see the "Launch (≡)" message in the bottom right corner by pressing the menu button (≡). After a few attempts (I'm not certain of the exact number, but usually 1-5 times), this manual step should no longer be required. You'll observe a similar message (0 sessions (wake lock held)) on the home screen, and there's no need to take any action. This signals that the server is operational. If you open the IPTV player, it should function properly.
+
+| ![Screenshot of the home screen on the Firestick, displaying "0 sessions (wake lock held)," indicating that JTVServer is up and running.](https://github.com/rrjanbiah/JTVFire/assets/4907427/11f7b9c3-82ba-412b-86ed-56dc5c0853e2) | 
+|:--:| 
+| *Screenshot of the home screen on the Firestick, displaying "0 sessions (wake lock held)," indicating that JTVServer is up and running.* |
 
 
 ### TODO
