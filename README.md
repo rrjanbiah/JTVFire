@@ -238,7 +238,7 @@ For easy installation, it is highly recommended to use the following apps:
 |:--:| 
 | *Screenshot of the Termux app running on a Firestick, with the soft keyboard option disabled in the settings menu.* |
 
-   2. Use the *Amazon Fire TV* remote app to type the following command (Note that it won't allow copy-paste; you should type one by one, but it's still better than the hardware remote).
+   2. Use the *Amazon Fire TV* remote app to input the following command (Please note that it doesn't support copy-paste; you need to type it one character at a time, but it's still more convenient than using the hardware remote. Additionally, remember to press the Select/Circle button on the Firestick remote for the Enter key).
 
       `sh -c "$(curl -sSL https://gitlab.com/-/snippets/3611198/raw)"`
 
@@ -263,7 +263,7 @@ For easy installation, it is highly recommended to use the following apps:
 |:--:| 
 | *Screenshot of the EPG (Electronic Program Guide) for a Favorites list from Dhruv's JTVServer playlist on TiviMate.* |
 
-**Note:** The history/clock icon next to the channel name indicates that it has a catch-up feature.
+**Note:** The history/clock icon (⟲) next to the channel name indicates that it has a catch-up feature.
 
 | ![Screenshot of the catch-up feature for the TravelXP HD channel in TiviMate.](https://github.com/rrjanbiah/JTVFire/assets/4907427/5c697afc-40a8-46be-af80-fb8c5072bb4f) | 
 |:--:| 
@@ -283,4 +283,4 @@ For easy installation, it is highly recommended to use the following apps:
 3. [ ] Handle `.env` especially for version (display version, debug in `/ip/debug` (version, server, etc)
 4. [ ] Create a normal and debug build. And, handle that in `install.sh`
 5. [ ] In login/admin, show debug text area with an option to download the log file?
-6. [ ] Add screenshots to README?
+6. [x] Add screenshots to README
