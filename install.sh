@@ -6,7 +6,7 @@
 {
 set -x # enable display output of commands; shortcut to adding descriptive echo
 
-cd ~
+cd ~ || exit
 echo "$TERMUX_VERSION"
 
 # prerequisites
@@ -15,9 +15,10 @@ pkg install nodejs-lts -y
 
 if [ -d "$HOME/JTVServer" ]; then # if already installed
    kill -9 "$(lsof -t -i:3500 -sTCP:LISTEN)"
-   for f in $("$HOME/JTVServer"/*.jiotv); do
+   mkdir -p "$HOME/JTVServerTmpBak"
+   for f in "$HOME/JTVServer"/*.jiotv; do
     if [ -f "$f" ]; then
-        mv "$f" .  # take a backup in home
+        mv "$f" "$HOME/JTVServerTmpBak"  # take a backup in JTVServerTmpBak
 	fi
    done
    rm -rf "$HOME/JTVServer" # remove existing
@@ -27,10 +28,11 @@ fi
 # TODO fix the path
 curl -o JTVServer.tar.gz -sSL https://github.com/rrjanbiah/JTVFire/releases/latest/download/JTVServer.tar.gz
 tar -xvf JTVServer.tar.gz
-for f in $("$HOME"/*.jiotv); do # restore
+for f in "$HOME/JTVServerTmpBak"/*.jiotv; do # restore
     if [ -f "$f" ]; then
         mv "$f" "$HOME/JTVServer/"
 	fi
+    rm -rf "$HOME/JTVServerTmpBak"
 done
 rm JTVServer.tar.gz
 
@@ -42,10 +44,12 @@ cat <<EOF > ~/.termux/boot/JTVServer.rc && echo "Written ~/.termux/boot/JTVServe
 #!/bin/sh
 termux-wake-lock
 cd $HOME/JTVServer/
+# TODO test log trimmer
+head -c 50M JTVServer.log > JTVServer.log.tmp && mv JTVServer.log.tmp JTVServer.log
+# TODO cleanup *.db once in a while
+# rm *.db
 # TODO add nohup or leave it for debugging?
 node index.js >> JTVServer.log 2>&1 &
-# TODO test log trimmer
-# head -c 50M JTVServer.log > JTVServer.log.tmp && mv JTVServer.log.tmp JTVServer.log
 EOF
 
 
