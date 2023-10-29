@@ -4,6 +4,7 @@ channels.jiotv
 ipData.jiotv
 *.db
 channel-catchup.db
+channel-epg.db
 channel.db
 *.code-workspace
 node_modules/object-inspect/test*
