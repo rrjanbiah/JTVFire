@@ -28,8 +28,11 @@ export default function jdebug(...args) {
   if (isDebug) {
     const callerInfo = getCallerInfo();
     console.log(
-      `[DEBUG] ${callerInfo.filename}:${callerInfo.lineNumber} (${callerInfo.methodName}):`,
-      ...args
+      `[DEBUG] ${callerInfo.filename}:${callerInfo.lineNumber} (${callerInfo.methodName}):`
     );
+    for (let i = 0; i < args.length; i++) {
+      console.log("\t", args[i]);
+    }
+    console.log("\n");
   }
 }
