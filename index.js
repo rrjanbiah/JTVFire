@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import os from "node:os";
-import 'dotenv/config';
+import "dotenv/config";
 import chalk from "chalk";
 const app = express();
 app.use(express.urlencoded({ extended: true }));
@@ -26,6 +26,10 @@ if (!fs.existsSync("channel.db")) {
 
 if (!fs.existsSync("channel-catchup.db")) {
   fs["writeFileSync"]("./channel-catchup.db", '{"channel": {}}');
+}
+
+if (!fs.existsSync("channel-epg.db")) {
+  fs["writeFileSync"]("./channel-epg.db", '{"epg": {}}');
 }
 
 app.get("/login.html", (req, res) => {

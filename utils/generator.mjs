@@ -3,9 +3,9 @@ import m3u8Parser from "./m3u8Parser.mjs";
 import fs from "fs";
 import refreshtoken from "./refreshToken.mjs";
 
-import jdebug from '../utils/debug.mjs';
+import jdebug from "../utils/debug.mjs";
 
-import cookieManager from "./cookieManager.mjs"
+import cookieManager from "./cookieManager.mjs";
 
 import path from "path";
 import { fileURLToPath } from "url";
@@ -41,10 +41,11 @@ async function getUrl(id, retry = 0) {
       "https://jiotvapi.media.jio.com/playback/apis/v1/geturl?langId=6",
       options
     );
+    jdebug("response", response);
     if (response.status == 419) {
       // AuthToken Expire so gen new
       let ref = await refreshtoken();
-      jdebug('ref', ref);
+      jdebug("ref", ref);
       if (ref.success) {
         console.log(ref.message);
         getUrl(id, retry + 1);
@@ -95,30 +96,31 @@ export async function genM3u8(id) {
       },
     };
     let response = await fetch(channelUrl, options);
+    jdebug("channelUrl", channelUrl, "options", options, "response", response);
     let m3u8ChUrl = channelUrl.split("?");
     m3u8ChUrl = m3u8ChUrl[0];
-      let cookieres = await cookieManager.setCookie(
-        id,
-        response.headers.get("set-cookie"),
-        channelUrl,
-        m3u8Parser(m3u8ChUrl, await response.text(), id)
+    let cookieres = await cookieManager.setCookie(
+      id,
+      response.headers.get("set-cookie"),
+      channelUrl,
+      m3u8Parser(m3u8ChUrl, await response.text(), id)
     );
-    
-    return cookieres['m3u8'];
+
+    return cookieres["m3u8"];
   } catch (error) {
     console.log("f: " + error.message);
-    return ""
+    return "";
   }
 }
 
-
 export let getManifist = async function getMasterM3u8(id) {
   let m3u8 = await cookieManager.getM3u8(id);
-    if (!m3u8.success) {
-        return await genM3u8(id);
-    }
-    return m3u8;
-}
+  jdebug("m3u8", m3u8);
+  if (!m3u8.success) {
+    return await genM3u8(id);
+  }
+  return m3u8;
+};
 
 async function getLiveM3u8(url, cookie) {
   try {
@@ -146,19 +148,17 @@ async function getLiveM3u8(url, cookie) {
         "Accept-Encoding": "gzip",
       },
     };
-    let response = await fetch(
-      `https:/${url}`,
-      options
-    );
+    let response = await fetch(`https:/${url}`, options);
+    jdebug("url", url, "options", options, "response", response);
     let baseurl = url.split("/");
     baseurl[baseurl.length - 1] = "";
     baseurl = baseurl.join("/");
     if (response.status == 403) {
       let res = {
-      success: false,
-      m3u8: "",
-    };
-    return res;
+        success: false,
+        m3u8: "",
+      };
+      return res;
     }
     let res = {
       success: true,
@@ -173,7 +173,6 @@ async function getLiveM3u8(url, cookie) {
     };
     return res;
   }
-    
 }
 
 export async function getM3u8(url, id) {
@@ -186,13 +185,11 @@ export async function getM3u8(url, id) {
   }
 
   let livem3u = await getLiveM3u8(url, resss.data);
-  jdebug("livem3u: ", livem3u['m3u8']);
+  // jdebug("livem3u: ", livem3u['m3u8']);
   if (livem3u.success) {
-        return m3u8Parser(url, livem3u.m3u8, id);
-    } else {
-        await genM3u8(id);
-        return "newGen";
-    }
-
+    return m3u8Parser(url, livem3u.m3u8, id);
+  } else {
+    await genM3u8(id);
+    return "newGen";
+  }
 }
-
