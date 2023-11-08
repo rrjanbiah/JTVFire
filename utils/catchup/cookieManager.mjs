@@ -30,9 +30,9 @@ async function setCookie(id, cookie, masterUrl, start, end, masterM3u8) {
   data["url"] = uri[0];
   data["start"] = start;
   data["end"] = end;
-  data["slug"] = uri[1];
+  // data["slug"] = uri[1];
   data["mainUrl"] = masterUrl;
-  data["cookie"] = cookie;
+  data["cookie"] = uri[1]; // cookie;
   data["genrateTime"] = Date.now();
   data["m3u8"] = masterM3u8;
   jdebug("/channel/" + `${id}-${start}-${end}`, data);

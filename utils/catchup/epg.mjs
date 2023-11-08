@@ -68,7 +68,7 @@ export async function getEpg(id, start) {
 
   let data = (await db.getData("/epg")) || {};
   const lookupKey = getEpgLookupKey(id, start);
-  // jdebug("data[`${lookupKey}`]", data[lookupKey]);
+  jdebug(`data[lookupKey -> ${lookupKey}]`, data[lookupKey]);
   if (data[lookupKey] != undefined) {
     data = data[lookupKey];
   } else {
@@ -91,12 +91,13 @@ export async function getEpg(id, start) {
         data: `Status ${response.status}`,
       };
     }
-    let data = JSON.parse(await response.text());
+    data = JSON.parse(await response.text());
+    data = data.epg;
     await db.push("/epg/" + lookupKey, data);
     // jdebug("data (from Url)", data);
   }
 
-  const epgData = data["epg"].find((epg) => epg.startEpoch == start) || {};
+  const epgData = data.find((epg) => epg.startEpoch == start) || {};
   jdebug("epgData", epgData);
   return {
     status: true,
