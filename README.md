@@ -277,7 +277,7 @@ For easy installation, it is highly recommended to use the following apps:
 
 ### FAQ (Frequently Asked Questions)
 
-1. **Does it work on Android TV?**
+#### 1. **Does it work on Android TV?**
 
 As mentioned above, the goal of the project is to enable it to run on the TV and easily initiate the installation setup process. However, the instructions, except for the install script, were focused on Firestick and its helper apps. 
 
