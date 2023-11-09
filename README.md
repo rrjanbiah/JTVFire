@@ -275,6 +275,14 @@ For easy installation, it is highly recommended to use the following apps:
 |:--:| 
 | *Screenshot of the home screen on the Firestick, displaying "0 sessions (wake lock held)," indicating that JTVServer is up and running.* |
 
+### FAQ (Frequently Asked Questions)
+
+1. **Does it work on Android TV?**
+
+As mentioned above, the goal of the project is to enable it to run on the TV and easily initiate the installation setup process. However, the instructions, except for the install script, were focused on Firestick and its helper apps. 
+
+In short, the install script should work on any Android phone and Android TV. On a non-Firestick device, you'll need to find an alternative method to sideload apps and use a different remote app to easily type the commands.
+
 
 ### TODO
 
