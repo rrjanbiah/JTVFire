@@ -8,7 +8,10 @@ const __dirname = path.dirname(__filename);
 import jdebug from "../utils/debug.mjs";
 
 export default function parseM3u8(url, Playlist, id) {
-  jdebug(`parseM3u8(${url}, ${Playlist}, ${id})`);
+  jdebug(`parseM3u8(
+        ${url}, 
+        ${Playlist}, 
+        ${id})`);
   let baseurl = url.split("?");
   baseurl = baseurl[0];
   jdebug("baseurl", baseurl);
@@ -18,6 +21,10 @@ export default function parseM3u8(url, Playlist, id) {
   baseurl = baseurl.replace(
     "https://jiotvmblive.cdn.jio.com",
     "/jiotvmblive.cdn.jio.com"
+  );
+  baseurl = baseurl.replace(
+    "https://jiotvbpklive.cdn.jio.com",
+    "/jiotvbpklive.cdn.jio.com"
   );
   const parser = new m3u8.Parser();
   parser.push(Playlist);
