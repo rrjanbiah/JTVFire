@@ -14,34 +14,49 @@ const db = new JsonDB(new Config("channel-epg.db", true, false, "/"));
 // Returns 0 for current day, -1 for previous day and so on
 function getDayOffset(epochTimestamp) {
   epochTimestamp = Number(epochTimestamp);
+  const currentTimestamp = Date.now();
+  const millisecondsPerDay = 24 * 60 * 60 * 1000; // Number of milliseconds in a day
 
-  // const epochTimestamp = 1698517800000;
-  const date = new Date(epochTimestamp);
-  const dateTimeString = date.toLocaleString();
+  const currentDay = Math.floor(currentTimestamp / millisecondsPerDay);
+  const targetDay = Math.floor(epochTimestamp / millisecondsPerDay);
 
-  jdebug(`${epochTimestamp} in IST ${dateTimeString}`);
-  // Get the current date in the local time zone (IST)
-  const currentDate = new Date();
-  const currentOffset = currentDate.getTimezoneOffset();
-  currentDate.setMinutes(currentDate.getMinutes() + currentOffset);
-
-  // Set the date to the beginning of the day for both the provided date and the current date
-  date.setHours(0, 0, 0, 0);
-  currentDate.setHours(0, 0, 0, 0);
-
-  // Calculate the time difference in milliseconds
-  const timeDifference = date - currentDate;
-
-  // Calculate the day offset by dividing the time difference by the number of milliseconds in a day
-  const dayOffset = Math.floor(timeDifference / (24 * 60 * 60 * 1000));
-
+  const dayOffset = targetDay - currentDay;
   jdebug(`Day offset: ${dayOffset}`);
   return dayOffset;
 }
 
+// TODO Revisit the whole file
+// Returns 0 for current day, -1 for previous day and so on
+// function getDayOffset(epochTimestamp) {
+//   epochTimestamp = Number(epochTimestamp);
+
+//   // const epochTimestamp = 1698517800000;
+//   const date = new Date(epochTimestamp);
+//   const dateTimeString = date.toLocaleString();
+
+//   jdebug(`${epochTimestamp} in IST ${dateTimeString}`);
+//   // Get the current date in the local time zone (IST)
+//   const currentDate = new Date();
+//   const currentOffset = currentDate.getTimezoneOffset();
+//   currentDate.setMinutes(currentDate.getMinutes() + currentOffset);
+
+//   // Set the date to the beginning of the day for both the provided date and the current date
+//   date.setHours(0, 0, 0, 0);
+//   currentDate.setHours(0, 0, 0, 0);
+
+//   // Calculate the time difference in milliseconds
+//   const timeDifference = date - currentDate;
+
+//   // Calculate the day offset by dividing the time difference by the number of milliseconds in a day
+//   const dayOffset = Math.floor(timeDifference / (24 * 60 * 60 * 1000));
+
+//   jdebug(`Day offset: ${dayOffset}`);
+//   return dayOffset;
+// }
+
 export function getEpgLookupKey(id, epochTimestamp) {
-    const yyymmddString = epochTS2yyyymmdd(epochTimestamp);
-    return `${id}-${yyymmddString}`;
+  const yyymmddString = epochTS2yyyymmdd(epochTimestamp);
+  return `${id}-${yyymmddString}`;
 }
 
 // return date from the timestamp for lookup key

@@ -2,7 +2,7 @@ import { JsonDB } from "node-json-db";
 import { Config } from "node-json-db/dist/lib/JsonDBConfig.js";
 import fs from "fs";
 
-import jdebug from "../debug.mjs";
+import jdebug from "../../utils/debug.mjs";
 
 import path from "path";
 import { fileURLToPath } from "url";
@@ -18,9 +18,6 @@ const db = new JsonDB(new Config("channel-catchup.db", true, false, "/"));
 // }
 
 async function setCookie(id, cookie, masterUrl, start, end, masterM3u8) {
-  jdebug(
-    `setCookie(${id}, ${cookie}, ${masterUrl}, ${start}, ${end}, ${masterM3u8})`
-  );
   let uri = masterUrl.split("?");
   let data = {};
   // uri[0] = uri[0].replace(
@@ -30,12 +27,11 @@ async function setCookie(id, cookie, masterUrl, start, end, masterM3u8) {
   data["url"] = uri[0];
   data["start"] = start;
   data["end"] = end;
-  // data["slug"] = uri[1];
+  data["slug"] = uri[1];
   data["mainUrl"] = masterUrl;
-  data["cookie"] = uri[1]; // cookie;
+  data["cookie"] = cookie;
   data["genrateTime"] = Date.now();
   data["m3u8"] = masterM3u8;
-  jdebug("/channel/" + `${id}-${start}-${end}`, data);
   await db.push("/channel/" + `${id}-${start}-${end}`, data);
   return data;
 }
@@ -77,9 +73,8 @@ async function getUrl(id, start, end) {
 }
 
 async function getM3u8(id, start, end) {
-  jdebug(`getM3u8(${id}, ${start}, ${end})`);
+  jdebug("getM3u8", id, start, end);
   let data = (await db.getData("/channel")) || {};
-  jdebug("data", data);
 
   if (data[`${id}-${start}-${end}`] != undefined) {
     let velidTime = 60 * 60 * 20 * 1000;

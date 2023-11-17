@@ -5,8 +5,7 @@ import fetch from "node-fetch";
 import chalk from "chalk";
 import httpProxy from "http-proxy";
 const apiProxy = httpProxy["createProxyServer"]();
-
-import jdebug from '../../utils/debug.mjs';
+import jdebug from "../../utils/debug.mjs";
 
 import path from "path";
 import { fileURLToPath } from "url";
@@ -24,24 +23,20 @@ import {
 router.get("/getm3u8/:start/:end/:id/index.m3u8", async (req, res) => {
   const { id, start, end } = req.params;
   let decryptionData = await getManifist(id, start, end);
-  jdebug('decryptionData', decryptionData);
+  jdebug("decryptionData", decryptionData);
   if (!decryptionData["success"]) {
-    // TODO revisit and understand the logic of redirection
-    return res.sendStatus(404);
-    // return res.redirect(req.originalUrl);
+    return res.redirect(req.originalUrl);
   }
   res.set("Content-Type", "application/vnd.apple.mpegurl");
-  return res.status(200).send(Buffer.from(decryptionData["data"], 'utf-8'));
+  return res.status(200).send(Buffer.from(decryptionData["data"], "utf-8"));
 });
 // master.m3u8
 router.get("/getm3u8/:start/:end/:id/master.m3u8", async (req, res) => {
   const { id, start, end } = req.params;
   let decryptionData = await getManifist(id, start, end);
-  jdebug('decryptionData', decryptionData);
+  jdebug("decryptionData", decryptionData);
   if (!decryptionData["success"]) {
-    // TODO revisit and understand the logic of redirection
-    return res.sendStatus(404);
-    // return res.redirect(req.originalUrl);
+    return res.redirect(req.originalUrl);
   }
   res.set("Content-Type", "application/vnd.apple.mpegurl");
   return res.status(200).send(Buffer.from(decryptionData["data"], "utf-8"));
@@ -50,8 +45,9 @@ router.get("/getm3u8/:start/:end/:id/master.m3u8", async (req, res) => {
 router.get("/getm3u8/:start/:end/:id", async (req, res) => {
   const { id, start, end } = req.params;
   const { m3u8, vbegin, vend } = req.query;
+  // const programId = await getProgramId(id, start, end)
   let decryptionData = await getM3u8(id, start, end, m3u8, vbegin, vend);
-  jdebug('decryptionData', decryptionData);
+  jdebug("decryptionData", decryptionData);
   if (decryptionData == "newGen") {
     return res.redirect(req.oiginalUrl);
   }
