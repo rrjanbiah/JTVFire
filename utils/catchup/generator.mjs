@@ -16,8 +16,8 @@ const __dirname = path.dirname(__filename);
 
 async function getUrl(id, start, end, retry = 0) {
   jdebug("getUrl", id, start, end);
-  //  let programId = await getProgramId(id, start, end);
-  // jdebug('programId', programId)
+  let programId = await getProgramId(id, start, end);
+  jdebug("programId", programId);
   try {
     if (retry > 5) {
       return "";
