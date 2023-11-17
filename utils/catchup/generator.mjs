@@ -123,7 +123,7 @@ export async function genM3u8(id, start, end) {
       m3u8Parser(m3u8ChUrl, await response.text(), id, start, end)
     );
 
-    console.log("cookieres", cookieres);
+    jdebug("cookieres", cookieres);
 
     return {
       status: true,
@@ -140,7 +140,7 @@ export async function genM3u8(id, start, end) {
 
 async function getMasterM3u8(id, start, end) {
   let m3u8 = await cookieManager.getM3u8(id, start, end);
-  console.log("m3u8m3u8m3u8m3u8m3u8m3u8", m3u8);
+  jdebug("m3u8m3u8m3u8m3u8m3u8m3u8", m3u8);
   if (!m3u8.success) {
     return await genM3u8(id, start, end);
   }
